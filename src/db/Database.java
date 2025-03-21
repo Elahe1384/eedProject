@@ -4,10 +4,15 @@ import db.exception.EntityNotFoundException;
 
 import java.util.ArrayList;
 
+
 public class Database {
     private static ArrayList<Entity> entities = new ArrayList<>();
+    private static int nextId = 1;
 
-    public void add(Entity e){
+    private Database() {}
+
+    public static void add(Entity e) {
+        e.id = nextId++;
         entities.add(e);
     }
 
